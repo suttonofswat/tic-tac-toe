@@ -31,21 +31,27 @@ var finished =
 
 console.log('     1        2        3      ');
 console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	' 	|');
+console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	'|');
 console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   ' 	|');
+console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   '|');
 console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   ' 	|');
+console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   '|');
 console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
 console.log();
 
 do {
 do {
-	
+
 		do{
-		console.log(player1+ 'what are your coordinates?');
+		console.log(player1+ ' what are your coordinates?');
 		p1 = prompt();
+		if (p1 === 'forfiet'){
+			console.log(player2+ ' wins!');
+			return;
+
+		} 
+		
 		var cords = p1.length;
 		var isCorrectLength = (cords === 3);
 		var p1Answer = p1.split(' ');
@@ -77,11 +83,11 @@ do {
 
 		console.log('     1        2        3      ');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	' 	|');
+		console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	'|');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   ' 	|');
+		console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   '|');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   ' 	|');
+		console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   '|');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
 		
@@ -89,8 +95,14 @@ do {
 
 		if (finished === false && plays < 9){
 			do{
-		console.log(player2+ 'what are your coordinates?');
+		console.log(player2+ ' what are your coordinates?');
 				p2 = prompt();
+				if (p1 === 'forfiet'){
+					console.log(player2+ ' wins!');
+					return;
+
+				} 
+
 				var cords = p2.length;
 				var isCorrectLength = (cords === 3);
 				var p2Answer = p2.split(' ');
@@ -102,7 +114,7 @@ do {
 				var spotTaken= (board[y][x] ==='x' || board[y][x] ==='o');
 				
 				}
-	// console.log(!isCorrectLength, spotTaken, incorrectEntry, isNotNumber);
+	
 	}while(!isCorrectLength || spotTaken || incorrectEntry || isNotNumber);
 		plays = plays+1;
 		board[y][x]='o';
@@ -116,9 +128,8 @@ do {
 		console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   ' 	|');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
-	}else{
+	}
 
-	};
 	finished = 
 	(board[0][0]==='x' && board[0][1]==='x' && board[0][2]==='x')||(board[0][0]==='o' && board[0][1]==='o' && board[0][2]==='o')
  || (board[1][0]==='x' && board[1][1]==='x' && board[1][2]==='x')||(board[1][0]==='o' && board[1][1]==='o' && board[1][2]==='o')
@@ -140,7 +151,19 @@ if (plays === 9){
 }
 console.log('do you want to play again? (y/n)');
 var ready=prompt();
+
+var board=[
+	[' ', ' ', ' '],
+	[' ', ' ', ' '], 
+	[' ', ' ', ' ']
+
+];
+plays = 0;
+
+
+
 }while(ready !== 'n');
+
 
 console.log('thanks for playing!');
 
