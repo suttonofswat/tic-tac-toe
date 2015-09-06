@@ -1,6 +1,10 @@
 var prompt = require('prompt-sync').prompt;
 
-
+console.log("Would you like to play a game? Y or N");
+var playAGame = prompt().toUpperCase();
+if (playAGame === 'N'){
+	console.log("too bad, you're playing");
+}
 console.log('what is your name Player 1?');
 var player1 = prompt();
 var plays = 0;
@@ -28,15 +32,14 @@ var finished =
 
 
 
-
-console.log('     1        2        3      ');
-console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	'|');
-console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   '|');
-console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   '|');
-console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+		console.log('      1       2       3      ');
+		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+		console.log('1|     '   	+board[0][0]+   '  |   '  	 +board[0][1]+ 	'   | '  	+board[0][2]);
+		console.log('    -----------------------');
+		console.log('2|     '   	+board[1][0]+   '  |   '  	 +board[1][1]+ 	'   | '  	+board[1][2]);
+		console.log('    -----------------------');
+		console.log('3|     '   	+board[2][0]+   '  |   '  	 +board[2][1]+ 	'   | '  	+board[2][2]);
+		
 
 console.log();
 
@@ -81,15 +84,13 @@ do {
  || (board[0][2]==='x' && board[1][1]==='x' && board[2][0]==='x')||(board[0][2]==='o' && board[1][1]==='o' && board[2][0]==='o');
 
 
-		console.log('     1        2        3      ');
+		console.log('      1       2       3      ');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	'|');
-		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   '|');
-		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   '|');
-		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-
+		console.log('1|     '   	+board[0][0]+   '  |   '  	 +board[0][1]+ 	'   | '  	+board[0][2]);
+		console.log('    -----------------------');
+		console.log('2|     '   	+board[1][0]+   '  |   '  	 +board[1][1]+ 	'   | '  	+board[1][2]);
+		console.log('    -----------------------');
+		console.log('3|     '   	+board[2][0]+   '  |   '  	 +board[2][1]+ 	'   | '  	+board[2][2]);
 		
 
 
@@ -119,14 +120,14 @@ do {
 		plays = plays+1;
 		board[y][x]='o';
 
-		console.log('     1        2        3      ');
+		console.log('      1       2       3      ');
 		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('1|'   	+board[0][0]+   ' 	| 	'  	 +board[0][1]+ 	' 	| 	'  	+board[0][2]+ 	' 	|');
-		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('2|'    +board[1][0]+    ' 	| 	'    +board[1][1]+   ' 	| 	'   +board[1][2]+   ' 	|');
-		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-		console.log('3|'    +board[2][0]+    ' 	| 	'    +board[2][1]+   ' 	| 	'  +board[2][2]+   ' 	|');
-		console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+		console.log('1|     '   	+board[0][0]+   '  |   '  	 +board[0][1]+ 	'   | '  	+board[0][2]);
+		console.log('    -----------------------');
+		console.log('2|     '   	+board[1][0]+   '  |   '  	 +board[1][1]+ 	'   | '  	+board[1][2]);
+		console.log('    -----------------------');
+		console.log('3|     '   	+board[2][0]+   '  |   '  	 +board[2][1]+ 	'   | '  	+board[2][2]);
+		
 
 	}
 
@@ -143,7 +144,7 @@ do {
 } while (finished === false && plays < 9);
 
 if (plays === 9){
-	console.log('cats name!');
+	console.log('cats game!');
 } else if((board[0][0]==='x' && board[0][1]==='x' && board[0][2]==='x')|| (board[1][0]==='x' && board[1][1]==='x' && board[1][2]==='x') || (board[2][0]==='x' && board[2][1]==='x' && board[2][2]==='x') || (board[0][0]==='x' && board[1][0]==='x' && board[2][0]==='x') || (board[0][1]==='x' && board[1][1]==='x' && board[2][1]==='x') || (board[0][2]==='x' && board[1][2]==='x' && board[2][2]==='x') || (board[0][0]==='x' && board[1][1]==='x' && board[2][2]==='x') || (board[0][2]==='x' && board[1][1]==='x' && board[2][0]==='x')) {
 	console.log(player1+ ' wins!');
 } else{
@@ -166,4 +167,5 @@ plays = 0;
 
 
 console.log('thanks for playing!');
+console.log('bye felicia!')
 
